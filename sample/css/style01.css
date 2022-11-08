@@ -1,163 +1,56 @@
-
 @charset "utf-8";
 
-
-
-/*==================================================
-スライダーのためのcss
-===================================*/
-.slider {
-  position:relative;
-z-index: 1;
-/*↑z-indexの値をh1のz-indexの値よりも小さくして背景に回す*/
-height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
-}
-/*　背景画像設定　*/
-
-.slider-item01 {
-  background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_01.jpg);
-}
-
-.slider-item02 {
-  background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_02.jpg);
-}
-
-.slider-item03 {
-  background:url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-1/img/img_03.jpg);
-}
-
-.slider-item {
-  width: 100%;/*各スライダー全体の横幅を画面の高さいっぱい（100%）にする*/
-  height:100vh;/*各スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
-  background-repeat: no-repeat;/*背景画像をリピートしない*/
-  background-position: center;/*背景画像の位置を中央に*/
-  background-size: cover;/*背景画像が.slider-item全体を覆い表示*/
-}
-
-/*矢印の設定*/
-
-/*戻る、次へ矢印の位置*/
-.slick-prev, 
-.slick-next {
-  position: absolute;/*絶対配置にする*/
-z-index: 3;
-  top: 42%;
-  cursor: pointer;/*マウスカーソルを指マークに*/
-  outline: none;/*クリックをしたら出てくる枠線を消す*/
-  border-top: 2px solid #ccc;/*矢印の色*/
-  border-right: 2px solid #ccc;/*矢印の色*/
-  height: 25px;
-  width: 25px;
-}
-
-.slick-prev {/*戻る矢印の位置と形状*/
-  left:2.5%;
-  transform: rotate(-135deg);
-}
-
-.slick-next {/*次へ矢印の位置と形状*/
-  right:2.5%;
-  transform: rotate(45deg);
-}
-
-/*ドットナビゲーションの設定*/
-
-.slick-dots {
-position: relative;
-z-index: 3;
-  text-align:center;
-margin:-50px 0 0 0;
-}
-
-.slick-dots li {
-  display:inline-block;
-margin:0 5px;
-}
-
-.slick-dots button {
-  color: transparent;
-  outline: none;
-  width:8px;/*ドットボタンのサイズ*/
-  height:8px;/*ドットボタンのサイズ*/
-  display:block;
-  border-radius:50%;
-  background:#ccc;/*ドットボタンの色*/
-}
-
-.slick-dots .slick-active button{
-  background:#333;/*ドットボタンの現在地表示の色*/
-}
-
-/*========= レイアウトのためのCSS ===============*/
-ul{
-margin:0;
-padding: 0;
-list-style: none;
-}
-
-a{
-color: #fff;
-}
-
-a:hover,
-a:active{
-text-decoration: none;
-}
-
-h1{
-position: absolute;
-z-index: 2;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-text-align: center;
-font-size:6vw;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-}
-
-.wrapper{
-position: relative;
-}
-
-.container{
-background:#555;
-}
-
-.container p{
-padding: 300px 0; 
-text-align: center;
-color: #fff;
-}
 /*========= LoadingのためのCSS ===============*/
 
 /* Loading背景画面設定　*/
-
 #splash {
     /*fixedで全面に固定*/
   position: fixed;
-  z-index: 999;
   width: 100%;
   height: 100%;
-  background:#333;
+  z-index: 999;
   text-align:center;
   color:#fff;
 }
 
-/* Loadingバー中央配置　*/
+/* Loading画像中央配置　*/
 #splash_text {
   position: absolute;
   top: 50%;
   left: 50%;
     z-index: 999;
-  width: 100%;
   transform: translate(-50%, -50%);
   color: #fff;
+  width: 100%;
 }
 
 /*IE11対策用バーの線の高さ※対応しなければ削除してください*/
 #splash_text svg{
     height: 2px;
+}
+
+/*割れる画面のアニメーション*/
+.loader_cover {
+    width: 100%;
+    height: 50%;
+    background-color: #333;
+    transition: all .2s cubic-bezier(.04, .435, .315, .9);
+    transform: scaleY(1);
+}
+/*上の画面*/
+.loader_cover-up {
+    transform-origin: center top;
+}
+
+/*下の画面*/
+.loader_cover-down {
+    position: absolute;
+    bottom: 0;
+    transform-origin: center bottom;
+}
+/*クラス名がついたらY軸方向に0*/
+.coveranime {
+    transform: scaleY(0);
 }
 
 /*========= レイアウトのためのCSS ===============*/
@@ -173,7 +66,6 @@ color: #fff;
     text-align: center;
 }
 
-
 a{
     color: #333;
 }
@@ -181,87 +73,3 @@ a{
 a:hover{
      text-decoration: none;   
 }
-
-/*==================================================
-ギャラリーのためのcss
-===================================*/
-.gallery{
-  columns: 4;/*段組みの数*/
-  padding:0 15px;/*ギャラリー左右に余白をつける*/
-  }
-  
-  .gallery li {
-      margin-bottom: 20px;/*各画像下に余白をつける*/
-  }
-  
-  /*ギャラリー内のイメージは横幅100%にする*/
-  .gallery img{
-    width:100%;
-    height:auto;
-    vertical-align: bottom;/*画像の下にできる余白を削除*/}
-  
-  /*　横幅900px以下の段組み設定　*/
-  @media only screen and (max-width: 900px) {
-    .gallery{
-    columns:3;
-    } 
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .gallery{
-    columns: 2;
-    } 
-  }
-  
-  
-  /*========= レイアウトのためのCSS ===============*/
-  
-  ul{
-    margin:0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  a{
-    color: #333;
-  }
-  
-  a:hover,
-  a:active{
-    text-decoration: none;
-  }
-  
-  h1{
-    text-align: center;
-    font-size:6vw;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin:30px 0;
-  }
-  
-  p{
-    margin:0 10px 10px 10px;
-    word-wrap : break-word;
-  }
-  
-  /*画像を出現させるアニメーションCSS*/
-  
-  .flipLeft{
-  animation-name: flipLeft;
-  animation-duration:0.5s;
-  animation-fill-mode:forwards;
-  perspective-origin: left center;
-  opacity: 0;
-  }
-  
-  @keyframes flipLeft{
-    from {
-     transform: perspective(600px) translate3d(0, 0, 0) rotateY(30deg);
-    opacity: 0;
-    }
-  
-    to {
-    transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
-    opacity: 1;
-    }
-  }  
