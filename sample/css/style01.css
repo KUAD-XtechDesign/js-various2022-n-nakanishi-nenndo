@@ -1,129 +1,89 @@
+@charset "utf-8";
 
-html,body,#contents,.wrapper,#back{
-  background-color: #001219;
+/*========= LoadingのためのCSS ===============*/
+
+/* Loading背景画面設定　*/
+#splash {
+    /*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
   height: 100%;
-  width: 100%;
-  position: relative;
+  z-index: 999;
+  text-align:center;
+  color:#fff;
 }
 
-.wrapper{
-  
-}
-
-li{
-  list-style: none;
-}
-
-img{
-  max-width: 100%;
-}
-
-header{
-  position: fixed;
-  width: 100%;
-  background-color: #fff;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  top: 0;
-}
-
-footer{
-  position: fixed;
-  width: 100%;
-  background-color: #fff;
-  bottom:0;
-  padding: 5px;
-  text-align: right;
-  font-size: 10px;
-}
-
-header h1{
-  font-size: 20px;
-}
-
-header ul{
-  display: flex;
-  margin-left: auto;
-}
-
-header ul li{
-  margin-left: 20px;
-}
-
-#contents{
-  overflow: hidden;
-}
-
-#back{
-  background-image: url(../images/spaceback.png);
-  background-size: cover;
-  background-position: center 100px;
-  top: 0;
-  top:90%;
-  transition: 2s all;
-}
-
-#back.anime{
-  top: 0%;
-}
-
-#person{
+/* Loading画像中央配置　*/
+#splash_text {
   position: absolute;
-  top:200px;
-  right: -100px;
-  width: 100px;
-  transition: 0.6s all;
-}
-
-#person.anime{
-  right: 10px;
-}
-
-
-#car{
-  position: absolute;
-  bottom:100px;
-  max-width: 40%;
-  left: -250px;
-  width: 250px;
-  transition: 0.6s all;
-}
-
-#car.anime{
-  left: 0px;
-}
-
-#food{
-  width: 50%;
-  bottom: 10%;
-  margin-left: -25%;
+  top: 50%;
   left: 50%;
-  position: absolute;
-  opacity: 0;
-}
-
-
-#food.anime {
-  /* cssライブラリanimate.cssを利用 */
-  animation: zoomInDown;
-  animation-duration: 1s; 
-  opacity: 1;
-}
-
-
-#intro{
-  position: fixed;
-  display: flex;
-  z-index: 101;
-  background-color: #000;
-  width: 100%;
-  height: 100%;
+    z-index: 999;
+  transform: translate(-50%, -50%);
   color: #fff;
-  font-family: serif;
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
-  top: 0;
+  width: 100%;
 }
+
+
+
+/*割れる画面のアニメーション*/
+.loader_cover {
+    width: 100%;
+    height: 50%;
+    background-color: rgb(255, 191, 0);
+    transition: all .2s cubic-bezier(.04, .435, .315, .9);
+    transform: scaleY(1);
+}
+/*上の画面*/
+.loader_cover-up {
+    transform-origin: center top;
+}
+
+/*下の画面*/
+.loader_cover-down {
+    position: absolute;
+    bottom: 0;
+    transform-origin: center bottom;
+}
+/*クラス名がついたらY軸方向に0*/
+.coveranime {
+    transform: scaleY(0);
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(249, 243, 228);
+  align-items: center;
+}
+ 
+
+
+
+.menu-item {
+  list-style: none;
+  display: inline-block;
+  padding: 7px;
+}
+
+#container{
+    width:100%;
+    height: 100vh;
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+a{
+    color: rgb(255, 191, 0);
+}
+
+a:hover{
+     text-decoration: none;   
+}
+
