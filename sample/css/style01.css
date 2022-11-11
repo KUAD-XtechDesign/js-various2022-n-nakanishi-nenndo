@@ -60,11 +60,9 @@ header {
   align-items: center;
 }
  
-.title {
-  margin-right: auto;
-  font-size: 7;
-}
- 
+
+
+
 .menu-item {
   list-style: none;
   display: inline-block;
